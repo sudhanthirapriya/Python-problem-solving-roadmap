@@ -1,0 +1,300 @@
+# Python Problem-Solving Repository - .gitignore
+
+# ============================================================================
+# Python
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+*~
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# ============================================================================
+# Operating System Files
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# Project Specific
+# ============================================================================
+
+# Temporary scripts and logs
+COMPLETE_FIX_ALL_677.py
+AUTO_FIX_ALL_870.py
+CREATE_MISSING_TOPICS.py
+FIX_REMAINING_124.py
+AUTO_ENHANCE_ALL_843_PROBLEMS.py
+*_FIX_*.py
+*_AUTO_*.py
+upgrade_log.txt
+verification_log.txt
+*.log
+
+# Gold standard templates (development only)
+GOLD_STANDARD_TEMPLATES/
+
+# Roadmap and planning docs (development only)
+ROADMAP_TO_PUBLIC_RELEASE.md
+IMPLEMENTATION_PLAN.md
+
+# Personal solution branches (if working locally)
+my-solutions/
+personal-notes/
+
+# Test data and outputs
+test_data/
+test_output/
+*.test
+*.tmp
+
+# Data files for ML problems (too large for git)
+*.csv
+*.xlsx
+*.pkl
+*.h5
+*.hdf5
+*.parquet
+*.feather
+datasets/
+models/
+checkpoints/
+
+# Scratch work
+scratch/
+sandbox/
+playground/
+experiments/
+
+# Generated documentation
+generated_docs/
+
+# ============================================================================
+# Keep These Files (Override rules above if needed)
+# ============================================================================
+
+# Force include important files at root
+!requirements.txt
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+!.gitignore
+!GETTING_STARTED.md
+!GITHUB_READY_CHECKLIST.md
+
+# Keep all problem files
+!**/easy/*.py
+!**/medium/*.py
+!**/hard/*.py
+
+# Keep real-world projects
+!12-real-world-python/**/*.py
+!12-real-world-python/**/main.py
+VERIFICATION_REPORT.md
+upgrade_log.txt
+requirements.txt
+RENAMING_SUMMARY.md
+LICENSE
+GETTING_STARTED.md
+file_renaming_plan.csv
+CONTRIBUTING.md
+COMPLETE_FIX_ALL_677.py
+COMPLETE_FILE_MAPPING.txt
+AUTO_FIX_ALL_870.py
+AUTO_ENHANCE_ALL_843_PROBLEMS.py
+ALL_FILES_MAPPING.json
+GOLD_STANDARD_TEMPLATES
