@@ -1,11 +1,47 @@
 # 🐍 Python Problem-Solving Roadmap
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![Problems](https://img.shields.io/badge/problems-843-brightgreen.svg)](https://github.com/yourusername/python-problem-solving)
+[![Problems](https://img.shields.io/badge/problems-843-brightgreen.svg)](https://github.com/sudhanthirapriya/Python-problem-solving-roadmap)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![GitHub Stars](https://img.shields.io/github/stars/sudhanthirapriya/Python-problem-solving-roadmap?style=social)](https://github.com/sudhanthirapriya/Python-problem-solving-roadmap/stargazers)
 
-> A comprehensive collection of **843 Python problems** spanning from absolute basics to ML engineering, designed for structured learning and interview preparation.
+> **Master Python through progressive problem-solving**: Start with variables, end with ML engineering. **843 carefully curated problems** across **13 topics** with structured learning paths.
+
+---
+
+## ⚡ Quick Start (5 Minutes)
+
+```bash
+# Clone the repository
+git clone https://github.com/sudhanthirapriya/Python-problem-solving-roadmap.git
+cd Python-problem-solving-roadmap
+
+# Navigate to your first problem
+cd 01-python-basics/easy
+
+# Start solving!
+python 01_var_assignment.py
+```
+
+**👋 New to Python?** → Start with [Getting Started Guide](GETTING_STARTED.md)  
+**💼 Interview prep?** → Jump to [Arrays](07-arrays) or [DSA](11-dsa)  
+**🤖 ML Engineer path?** → Begin at [ML Engineering](13-python-for-ml-engineers)
+
+---
+
+## 🎯 What Makes This Different?
+
+| Feature | This Roadmap | Others |
+|---------|--------------|--------|
+| **Complete Learning Path** | Basics → ML Engineering | Usually just DSA |
+| **843 Structured Problems** | Progressive difficulty | Random collections |
+| **Real-World Projects** | Practical applications | Theory only |
+| **ML Focus** | Dedicated ML track | Rarely included |
+| **Learning Paths** | 4 guided paths | No structure |
+| **Open Source** | MIT licensed | Often proprietary |
+
+**Not just another problem collection. A complete learning system.**
 
 ---
 

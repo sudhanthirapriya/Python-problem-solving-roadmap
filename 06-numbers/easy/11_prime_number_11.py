@@ -1,112 +1,186 @@
 """
-Problem: Prime Number 11
+Problem #003: Check if Number is Prime
 Difficulty: Easy
-Tags: #math #numbers #easy
+Tags: #numbers #math #prime #optimization
 
 Description
 -----------
-Solve prime numeric problem
+Determine whether a given positive integer is a prime number.
+
+A prime number is a natural number greater than 1 that has no positive 
+divisors other than 1 and itself. For example: 2, 3, 5, 7, 11, 13...
+
+Real-World Application:
+Prime numbers are fundamental in cryptography (RSA encryption), hashing 
+algorithms, random number generation, and computer security.
 
 Constraints
 -----------
-- Input size: 1 ≤ n ≤ 10^5
+- 1 ≤ n ≤ 10^9
 - Time limit: 1 second
 - Space limit: 256 MB
 
 Examples
 --------
 Example 1:
-Input: [example input]
-Output: [expected output]
-Explanation: [why this output]
+Input: 7
+Output: True
+Explanation: 7 has no divisors other than 1 and 7
 
-Example 2 (Edge Case):
-Input: [edge case input]
-Output: [expected output]
-Explanation: [handling edge case]
+Example 2:
+Input: 12
+Output: False
+Explanation: 12 = 2 × 6, so it's composite
+
+Example 3 (Edge Case - Small):
+Input: 2
+Output: True
+Explanation: 2 is the smallest and only even prime
+
+Example 4 (Edge Case - One):
+Input: 1
+Output: False
+Explanation: 1 is not considered prime by definition
+
+Example 5 (Large Prime):
+Input: 97
+Output: True
+Explanation: 97 is prime (no divisors from 2 to 96)
 
 Approach
 --------
-1. Understand the problem requirements
-2. Identify key patterns or algorithms needed
-3. Plan your solution approach
-4. Consider edge cases
-5. Implement step by step
-6. Test with examples
+1. Handle edge cases (n ≤ 1, n == 2, even numbers)
+2. Check divisors only up to √n for efficiency
+3. Use 6k±1 optimization for even faster checking
 
 Hints
 -----
-Hint 1: Think about the time complexity required. What data structures can help?
+Hint 1: No need to check beyond √n (if n = a×b, one must be ≤ √n)
 
-Hint 2: Consider if there's a pattern (two pointers, sliding window, divide and conquer, etc.)
+Hint 2: Handle edge cases: numbers ≤ 1 are not prime, 2 is prime
 
-Hint 3: Draw out small examples to understand the pattern before coding.
+Hint 3: After checking 2, only check odd divisors (skip evens)
 
 Solution
 --------
 """
 
-def solve():
+import math
+
+
+# Approach 1: Optimized (check up to √n)
+def is_prime_optimized(n):
     """
-    TODO: Implement your solution here
+    Check divisors only up to √n.
     
-    Approach:
-    1. [Step 1]
-    2. [Step 2]
-    3. [Step 3]
+    Time: O(√n)
+    Space: O(1)
     
-    Time Complexity: O(?)
-    Space Complexity: O(?)
+    Best for: Most cases
     """
-    pass
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        if n % i == 0:
+            return False
+    
+    return True
+
+
+# Approach 2: 6k±1 optimization
+def is_prime_advanced(n):
+    """
+    Use 6k±1 pattern for faster checking.
+    
+    Time: O(√n)
+    Space: O(1)
+    
+    All primes > 3 are of form 6k±1
+    """
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    
+    return True
+
+
+# Main solution
+def solve(n):
+    """
+    Check if a number is prime.
+    
+    Args:
+        n: Positive integer to check
+        
+    Returns:
+        True if prime, False otherwise
+    
+    Time Complexity: O(√n)
+    Space Complexity: O(1)
+    """
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    
+    return True
 
 
 """
 Common Mistakes
 --------------
-1. Not handling edge cases (empty input, single element, etc.)
-2. Off-by-one errors in loops or indices
-3. Not considering time/space complexity constraints
-4. Forgetting to validate input
+1. ❌ Forgetting that 1 is not prime
+2. ❌ Not handling 2 (the only even prime)
+3. ❌ Checking all numbers up to n (too slow)
+4. ❌ Not handling negative numbers
 
-Edge Cases to Test
-------------------
-- Empty input
-- Single element
-- All same elements
-- Minimum/maximum constraints
-- Negative numbers (if applicable)
+Edge Cases
+----------
+✓ n = 1: False
+✓ n = 2: True (only even prime)
+✓ Even numbers > 2: False
+✓ Large primes: True
 
 Related Problems
 ---------------
-- [Similar Problem 1]
-- [Similar Problem 2]
-- [Next Level Problem]
-
-Practice Tips
--------------
-- Try solving without looking at hints first
-- Time yourself (aim for 20-30 minutes for easy)
-- After solving, compare with other approaches
-- Analyze time and space complexity
+- Count Primes (Easy)
+- Prime Factorization (Medium)
 """
 
-# Test cases
+# Test Suite
 def test_solve():
-    """Add your test cases here"""
-    # Test 1
-    # assert solve(input1) == expected1
-    
-    # Test 2
-    # assert solve(input2) == expected2
-    
-    print("All tests passed!")
+    assert solve(1) == False
+    assert solve(2) == True
+    assert solve(3) == True
+    assert solve(7) == True
+    assert solve(12) == False
+    assert solve(97) == True
+    print("✓ All 6 tests passed!")
 
 
 if __name__ == "__main__":
-    # Run basic test
-    result = solve()
-    print(f"Result: {result}")
-    
-    # Uncomment to run test suite
-    # test_solve()
+    test_solve()
+    print(f"\n7 is prime: {solve(7)}")
+    print(f"12 is prime: {solve(12)}")

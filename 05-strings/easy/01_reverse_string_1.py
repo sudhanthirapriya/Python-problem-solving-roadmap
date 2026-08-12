@@ -1,112 +1,153 @@
 """
-Problem: Reverse String 1
+Problem #002: Reverse a String
 Difficulty: Easy
-Tags: #strings #string-manipulation #easy
+Tags: #strings #reverse #two-pointers #interview-favorite
 
 Description
 -----------
-Perform reverse operation on string
+Write a function that reverses a string. The input string is given as a string.
+
+Real-World Application:
+String reversal is used in palindrome checks, text processing, data formatting,
+and is a fundamental operation in many algorithms.
 
 Constraints
 -----------
-- Input size: 1 ≤ n ≤ 10^5
+- 0 ≤ string.length ≤ 100,000
+- String consists of printable ASCII characters
 - Time limit: 1 second
 - Space limit: 256 MB
 
 Examples
 --------
 Example 1:
-Input: [example input]
-Output: [expected output]
-Explanation: [why this output]
+Input: "hello"
+Output: "olleh"
+Explanation: Simple reversal of 5 characters
 
-Example 2 (Edge Case):
-Input: [edge case input]
-Output: [expected output]
-Explanation: [handling edge case]
+Example 2:
+Input: "Python"
+Output: "nohtyP"
+Explanation: Case is preserved
+
+Example 3 (Edge Case - Empty):
+Input: ""
+Output: ""
+Explanation: Empty string returns empty string
+
+Example 4 (Edge Case - Single):
+Input: "A"
+Output: "A"
+Explanation: Single character remains same
+
+Example 5 (With Spaces):
+Input: "Hello World"
+Output: "dlroW olleH"
+Explanation: Spaces are also reversed
 
 Approach
 --------
-1. Understand the problem requirements
-2. Identify key patterns or algorithms needed
-3. Plan your solution approach
-4. Consider edge cases
-5. Implement step by step
-6. Test with examples
+1. Use Python's slicing notation [::-1] (most Pythonic)
+2. Or use reversed() function with join
+3. Or use two-pointer technique for interviews
 
 Hints
 -----
-Hint 1: Think about the time complexity required. What data structures can help?
+Hint 1: Python strings can be sliced: s[::-1] reverses a string
 
-Hint 2: Consider if there's a pattern (two pointers, sliding window, divide and conquer, etc.)
+Hint 2: Two pointers: swap characters from both ends moving toward center
 
-Hint 3: Draw out small examples to understand the pattern before coding.
+Hint 3: reversed() returns iterator, need to join: ''.join(reversed(s))
 
 Solution
 --------
 """
 
-def solve():
+# Approach 1: Python Slicing (Most Pythonic)
+def reverse_v1(s):
     """
-    TODO: Implement your solution here
-    
-    Approach:
-    1. [Step 1]
-    2. [Step 2]
-    3. [Step 3]
-    
-    Time Complexity: O(?)
-    Space Complexity: O(?)
+    Time: O(n), Space: O(n)
+    Best for: Production code
     """
-    pass
+    return s[::-1]
+
+
+# Approach 2: Using reversed()
+def reverse_v2(s):
+    """
+    Time: O(n), Space: O(n)
+    Best for: Memory efficient
+    """
+    return ''.join(reversed(s))
+
+
+# Approach 3: Two Pointers
+def reverse_v3(s):
+    """
+    Time: O(n), Space: O(n)
+    Best for: Interviews
+    """
+    chars = list(s)
+    left, right = 0, len(chars) - 1
+    
+    while left < right:
+        chars[left], chars[right] = chars[right], chars[left]
+        left += 1
+        right -= 1
+    
+    return ''.join(chars)
+
+
+# Main solution
+def solve(s):
+    """
+    Reverse a string.
+    
+    Args:
+        s: String to reverse
+        
+    Returns:
+        Reversed string
+    
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    """
+    return s[::-1]
 
 
 """
 Common Mistakes
 --------------
-1. Not handling edge cases (empty input, single element, etc.)
-2. Off-by-one errors in loops or indices
-3. Not considering time/space complexity constraints
-4. Forgetting to validate input
+1. ❌ Trying to modify string directly (strings are immutable)
+2. ❌ Not handling empty string
+3. ❌ Off-by-one in two pointers: while left <= right is wrong
+4. ❌ Inefficient concatenation: result += char in loop
 
-Edge Cases to Test
+Edge Cases Handled
 ------------------
-- Empty input
-- Single element
-- All same elements
-- Minimum/maximum constraints
-- Negative numbers (if applicable)
+✓ Empty string: "" → ""
+✓ Single character: "A" → "A"
+✓ With spaces: "a b" → "b a"
+✓ Palindrome: "noon" → "noon"
 
 Related Problems
 ---------------
-- [Similar Problem 1]
-- [Similar Problem 2]
-- [Next Level Problem]
-
-Practice Tips
--------------
-- Try solving without looking at hints first
-- Time yourself (aim for 20-30 minutes for easy)
-- After solving, compare with other approaches
-- Analyze time and space complexity
+- Reverse Words in a String (Medium)
+- Valid Palindrome (Easy)
+- Reverse String II (Medium)
 """
 
-# Test cases
+# Test Suite
 def test_solve():
-    """Add your test cases here"""
-    # Test 1
-    # assert solve(input1) == expected1
-    
-    # Test 2
-    # assert solve(input2) == expected2
-    
-    print("All tests passed!")
+    assert solve("hello") == "olleh"
+    assert solve("Python") == "nohtyP"
+    assert solve("") == ""
+    assert solve("A") == "A"
+    assert solve("Hello World") == "dlroW olleH"
+    assert solve("12345") == "54321"
+    print("✓ All 6 tests passed!")
 
 
 if __name__ == "__main__":
-    # Run basic test
-    result = solve()
-    print(f"Result: {result}")
-    
-    # Uncomment to run test suite
-    # test_solve()
+    test_solve()
+    print(f"\nExample: '{solve('Hello, World!')}')"
